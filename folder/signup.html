@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="getUserAccount()">
+      <label for="name">Username:</label>
+      <input type="text" id="username" name="fname" /><br /><br />
+      <label for="pass">Last name:</label>
+      <input type="text" id="password" name="lname" /><br /><br />
+      <button type="submit" value="Submit">Submit</button>
+    </form>
+    <div><a href="login.html">Back to login</a></div>
+    <script>
+      var getUserAccount = function () {
+        localStorage.setItem(
+          "username",
+          document.getElementById("username").value
+        );
+        localStorage.setItem(
+          "password",
+          document.getElementById("password").value
+        );
+        window.alert(
+          localStorage.getItem("username") +
+            " " +
+            localStorage.getItem("password")
+        );
+      };
+    </script>
+  </body>
+</html>

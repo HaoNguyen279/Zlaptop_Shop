@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+          <!-- Định nghĩa gradient -->
+          <defs>
+            <linearGradient id="rgbGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color: #ff0000">
+                <animate
+                  attributeName="stop-color"
+                  values="#ff0000; #00ff00; #0000ff; #ff0000"
+                  dur="8s"
+                  repeatCount="indefinite"
+                />
+              </stop>
+              <stop offset="50%" style="stop-color: #00ff00">
+                <animate
+                  attributeName="stop-color"
+                  values="#00ff00; #0000ff; #ff0000; #00ff00"
+                  dur="8s"
+                  repeatCount="indefinite"
+                />
+              </stop>
+              <stop offset="100%" style="stop-color: #0000ff">
+                <animate
+                  attributeName="stop-color"
+                  values="#0000ff; #ff0000; #00ff00; #0000ff"
+                  dur="8s"
+                  repeatCount="indefinite"
+                />
+              </stop>
+            </linearGradient>
+          </defs>
+
+          <!-- Text với hiệu ứng gradient RGB -->
+          <text
+            x="50%"
+            y="50%"
+            font-family="Arial Black, sans-serif"
+            font-size="48"
+            font-weight="bold"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            fill="url(#rgbGradient)"
+            style="filter: blur(0.3px)"
+          >
+            ZLaptop Shop
+          </text>
+        </svg>
+      </a>
+    </header>
+    <div class="content">
+      <div class="box">
+        <h1>Login</h1>
+        <div class="container">
+          <div class="span"><span>Username or email</span></div>
+          <div class="input-container">
+            <input
+              class="username-input"
+              type="text"
+              id="username"
+              placeholder="Enter user name"
+            />
+          </div>
+          <div class="span">
+            <span>Password</span>
+          </div>
+
+          <div class="input-container">
+            <input
+              class="password-input"
+              type="text"
+              id="password"
+              placeholder="Enter password"
+            />
+          </div>
+
+          <div class="submit">
+            <button onclick="checkAccount()">Continue</button>
+          </div>
+        </div>
+        <div class="sign-up-option">
+          <p>Dont have account?</p>
+          <a href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      var checkAccount = function () {
+        const targetUser = document.getElementById("username").value;
+        const targetPass = document.getElementById("password").value;
+        if (localStorage.getItem("username") == targetUser) {
+          if (localStorage.getItem("password") == targetPass) {
+            window.alert("Correct username and password! Successfully logged in!");
+          } else {
+            window.alert("wrong password");
+          }
+        } else {
+          window.alert("Wrong username");
+        }
+      };
+    </script>
+  </body>
+</html>
